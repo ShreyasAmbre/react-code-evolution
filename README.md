@@ -6,6 +6,7 @@
 - Easy to learn quickly
 - Installation of NodeJs and Editor VsCode 
 
+
 ## React Learning Content 
 - Fundamentals
 - HTTP
@@ -13,11 +14,11 @@
 - Redux 
 - Utilities
 
+
 ## Hello App
 - Creating new project using npx create-react-app <app-name>
 - Change the text and check the UI 
 
-## Folder Structure
 
 ## Component
 - Component Types
@@ -25,6 +26,7 @@
 - They are re useable and can be nested inside other components 
 1. Stateless Functional Component 
 2. Statefull Class Component 
+
 
 ## Functional Component
 - Functional component are just javascript function 
@@ -34,11 +36,13 @@
 - default export & named export  
 - When we return a template we should alway return a single wrapper HTML element
 
+
 ## Class Component
 - They can have a function parameters which can be a string, boolean, object or array etc.
 - A class component can maintain its private internal data state to show some data in UI which is private to that component only.
 - It contain HTML and JS which know as JSX
 - Created Welcome.js
+
 
 ## Functional vs Class Component
 1. Functional 
@@ -55,7 +59,6 @@
 - Provide Life Cycle Hooks
 - Statefull Component
 
-## Hooks
 
 ## JSX
 - Javascript XML - Extension of Javascript language syntax
@@ -66,6 +69,7 @@
 - JSX transpile the code into Javascript which is understood by browser
 - Create HelloWithJsx.js and HelloWithoutJxs.js (Mostly we will be usnig JSX syntax in React Component)
 
+
 ## Props
 - Props stands for properties 
 - Its a option input for the component to accept 
@@ -73,6 +77,7 @@
 - Updated Greet.js & App.js to pass data from App.js to Greet.js 
 - props are immutable - In simpler words we cant change value of props in GreetJs file
 - If props are not set in AppJs in UI it will not that value os props even though we have mapped props.name in GreetJs  
+
 
 ## State
 - Created Message.js class based component to use state
@@ -109,6 +114,7 @@ this.setState((prevState, props) => ({
     console.log(this.state.count)
 })
 ```
+
 
 ## Props vs State
 | Props | State
@@ -150,6 +156,7 @@ export default class Welcome extends Component {
 ```
 - Note: state syntax is same as props.
 
+
 ## Event Handling
 - Created FunctionClick.js
 - Created ClassClick.js
@@ -160,6 +167,7 @@ export default class Welcome extends Component {
     Class Component 
     <button onClick={this.clickHandler}>Click</button>
 ```
+
 
 ### Binding Event Handlers
 - Created EventBind.js
@@ -182,15 +190,16 @@ eventBindClickHandler = () => {
 - method passed from parent to child as props and triggered from child with a parameter
 - Note: Ref ParentComponent.js & ChildComponent.js files
 
+
 ## Conditional Rendering
 - 4 different approaches
 - if-else
 - Element variables
 - Ternary conditional operator
 - Short circuit operator: Used when we want to show the UI when condition is pass and do nothing if condition doesn't passed.
-
 - Created UserGreetings.js
 - Note: Mostly cases use Conditional Operator or Short circuit Operator  
+
 
 ## List Rendering 
 - Created NameList.js to render Array Element & PersonList.js to render Array of Object
@@ -201,14 +210,17 @@ eventBindClickHandler = () => {
 - Mostly use key="id" which is unique in object
 - In case when object element are not unique we can use "index" to bind toe "key" attribute as a value
 
+
 ## Styling React Component
 - Created Stylesheet.js & myStyle.css
 1. CSS Stylesheet
 2. Inline styling
 3. CSS Module
 
+
 ## Basic of Form Handling 
 - Created Form.js
+
 
 ## Component Lifecycle Methods 
 - created LifecycleA.js (Child Class Component) & LifecycleB.js (Child Class Component)
@@ -280,6 +292,7 @@ eventBindClickHandler = () => {
 </React.Fragment>
 ```
 
+
 ## Pure Component
 - Created ParenComp.js, RegularComp.js and PureComp.js
 - Note: UnComment setInterval method in parent and then run to check the output 
@@ -313,10 +326,13 @@ eventBindClickHandler = () => {
     var ab_eq = (a === b) // return false
     var ac_eq = (a === c) // return true (because memory location reference is same) 
     ```
+
+
 ## Memo
 - As we have seen Pure Component help to optimize and avoid unnecessary re-render but it is only in Class Component 
 - In functional base component we have React.memo()
 - created MemoComp.js
+
 
 ## Refs
 - Refs make it possible DOM node within react
@@ -326,10 +342,12 @@ eventBindClickHandler = () => {
 1. using 'refs' element attribute and new React.createRef()
 2. callback Ref
 
+
 ## Refs with Class Component
 - created ParentRefs.js & ChildRefs.js
 - used React.createRef() and new createRef()
 - Note: "ref" does not attached to functional component make a note its not "refs" its "ref" for Component
+
 
 ## Forwarding Ref
 - As we know "ref" does not work with functional component so we use "React.forwardRef" in child component to received the "ref" from parent component
@@ -349,6 +367,89 @@ const FRInput = React.forwardRef((props, ref) => {
 ## Portals
 - Created PortalDemo.js and updated index.html by adding div id="portal-root"
 - used ReactDOM.createPortal(component, elementId)
+
+
+## Error Boundaries Phase Method
+- static getDerivedStateFromError(error)
+- componentDidCatch(error, info)
+- Runtime error during rendering can put entire application into broken state. React basically unmount whole react component tree. What would be great if we catch the error anywhere in component tree and display fallback UI these is where we use 
+Error Boundary
+- Error boundary - A class component that implements one or both of the lifecycle methods getDerivedStateFromError() or
+componentDidCatch() becomes error boundary.
+- The static getDerivedStateFromError() method is used to display the fallback UI after the error is thrown and the 
+componentDidCatch() method is use to log the error information.
+- created Hero.js & ErrorBoundary.js
+- Note: Error Boundary catch error in during rendering, lifecycle methods and constructor of the whole tree below them. They do not catch error inside Event Handlers
+- Quick Summary 
+    - Error Boundaries are the child component which use to catch the error in their child component and log those errors and display the fallback UI.
+    - we use static getDerivedStateFromError() and componentDidCatch()
+    - Placement also matters as it controls if the entire application should have the fall back or a particular component that is causing the problem.
+
+
+## Higher Order Component (HOC)
+- What is need fo Higher Order Component ?
+    - Created ClickCounter.js, HoverCounter.js as some functionality is common and we are duplicating in both the component.
+    - So here it comes the Higher Order Component which is needed is to share the common functionality between the component.
+- What exactly is Higher Order Component ?
+    - A patter where a function takes a component as an argument and return a new enhance component
+    - ex: const newComponent = higherOrderComponent( originalComponent )
+    - Created WithCounter.js
+- Note: 
+    - When props are mapped to "ClickCounter" selector in App.js that props are passed to to "withCounter" HOC component but not directly to "ClickCounter because of that we cant use that"
+    - While passing that prop it passes to "WithCounter" and we need to pass it to "WrapperComponent" 
+
+
+## Render Props
+- Why its needed ?
+    - Created ClickCounter2.js and HoverCounter2.js 
+    - In above component we observe state and incrementCount method is common in both the component we can make this as a common to do that we can use Render Props (Which we did already in higer Order Component (HOC) )
+- Part 2
+    - Created User.js    
+    - In react its possible to use a props whose value is a function to control what is actually render by component
+    - The term "render props" refers to technique for sharing code between React Component using props whose value is a function 
+    - Updated - App.js line no. 137 to 147 and created Count2.js a "render props" component which holds component logic and pass state and functionality
+
+## Context
+- Context provide a way to pass the data through the component tree (Nested Component) without having to pass props down manually
+at entry level.
+- Created - ComponentA.js, ComponentB.js, ComponentC.js and ComponentD.js
+- Steps
+1. Create the context
+```
+const UserContext = React.createContext();
+
+const UserProvider = UserContext.Provider;
+const UserConsumer = UserContext.Consumer;
+
+export { UserProvider, UserConsumer }
+```
+2. Provide the context value
+- Note: React Context value accepts only ONE value.
+```
+<UserProvider  value={{ username: "shreyas", age: 28 }}>
+    <ComponentA />
+</UserProvider>
+```
+3. Consume the context value
+```
+ <UserConsumer>
+    { (user) => {
+        return <div>Hello { user.username } - { user.age }</div>  
+    }}
+</UserConsumer>
+```
+- We can set default value to the context while creating 
+- This does not required Provider around the component Consumer will pick the default value
+- ex: 
+```
+const UserContext = React.createContext({name: 'NA', age: 0});
+```
+- Context Type - refer ComponentD.js and ComponentC.js
+
+## React and HTTP
+- Axios & JSON Placeholder for FAKE APIs
+- created a PostList.js
+
 
 
 ## Shortcut of snippets

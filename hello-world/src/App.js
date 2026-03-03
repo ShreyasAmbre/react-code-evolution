@@ -24,6 +24,17 @@ import RefsDemo from './components/RefsDemo';
 import ParentRefs from './components/ParentRefs';
 import FRParent from './components/FRParent';
 import PortalDemo from './components/PortalDemo';
+import Hero from './components/Hero';
+import ErrorBoundary from './components/ErrorBoundary';
+import ClickCounter from './components/ClickCounter';
+import HoverCounter from './components/HoverCounter';
+import ClickCounter2 from './components/ClickCounter2';
+import HoverCounter2 from './components/HoverCounter2';
+import User from './components/User';
+import Counter2 from './components/Counter2';
+import ComponentA from './components/Context Concept/ComponentA';
+import { UserProvider } from './components/Context Concept/userContext';
+import PostList from './components/HTTP/PostList';
 
 // Named Exporting Component
 // import { Greet } from './components/Greet';
@@ -100,9 +111,48 @@ function App() {
     <span>Forwarding Ref - Functional Component</span>
     <FRParent /> */}
 
-    <hr />
+    {/* <hr />
     <span>Portals</span>
-    <PortalDemo />
+    <PortalDemo /> */}
+
+    {/* <hr />
+    <span>Error Boundary</span>
+    <ErrorBoundary>
+      <Hero heroName='Superman'/>
+    </ErrorBoundary>
+    <ErrorBoundary>
+      <Hero heroName='Joker' />
+    </ErrorBoundary> */}
+
+    {/* <hr />
+    <span>Higher Order Component - Part 1</span>
+    <ClickCounter name="Shreyas"/>
+    <HoverCounter /> */}
+
+
+    {/* <hr />
+    <span>Render Props</span>
+    <Counter2  
+      render={(count, incrementCount) => (
+        <ClickCounter2 count={count} incrementCount={incrementCount} />
+      )}
+    />
+
+    <Counter2 
+      render={(count, incrementCount) => (
+        <HoverCounter2 count={count} incrementCount={incrementCount} />
+      )}
+    /> */}
+
+    {/* <hr />
+    <span>Context</span>
+    <UserProvider  value={{ username: "Shreyas", age: 28 }}>
+      <ComponentA />
+    </UserProvider> */}
+
+    <hr />
+    <span>HTTP Calls</span>
+    <PostList />
 
 
     </div>
