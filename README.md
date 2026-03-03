@@ -25,7 +25,7 @@
 - Component are the part of the user interface
 - They are re useable and can be nested inside other components 
 1. Stateless Functional Component 
-2. Statefull Class Component 
+2. Stateful Class Component 
 
 
 ## Functional Component
@@ -34,7 +34,7 @@
 - It contain HTML and JS which know as JSX
 - Created Greet.js
 - default export & named export  
-- When we return a template we should alway return a single wrapper HTML element
+- When we return a template we should always return a single wrapper HTML element
 
 
 ## Class Component
@@ -57,17 +57,17 @@
 - Maintain their own private data state
 - Complex UI logic
 - Provide Life Cycle Hooks
-- Statefull Component
+- Stateful Component
 
 
 ## JSX
 - Javascript XML - Extension of Javascript language syntax
 - Write XML like code for elements and components
 - JSX have tag names, attributes & children
-- JSX is not a necessaity for the React application 
+- JSX is not a necessity for the React application 
 - JSX make your react code simpler and elegant 
 - JSX transpile the code into Javascript which is understood by browser
-- Create HelloWithJsx.js and HelloWithoutJxs.js (Mostly we will be usnig JSX syntax in React Component)
+- Create HelloWithJsx.js and HelloWithoutJxs.js (Mostly we will be using JSX syntax in React Component)
 
 
 ## Props
@@ -85,7 +85,7 @@
 - Updated state when user click on button  
 - Notes on setState()
 - Never modify the state directly this.state.count += 1 instead use setState() method to update it. 
-- If we set directly react will not re render the component 
+- If we set directly react will not re-render the component 
 - Call to the setState() is asynchronous so In simple terms code below that will execute first then this will get execute 
 - ex: console.log() execute first then setState() method is executed dut to that render value is different then logged value.
 ```
@@ -94,6 +94,7 @@ this.setState((prevState) => ({
 }), () => {
     console.log(this.state.count)
 })
+console.log("This will execute first then setState")
 ```
 - setState() take 2 parameters => 1st is state object, 2nd is callback function where we can add code which we want to execute after the state has been updated as per given above example
 - When we have to update the state on previous state pass function as argument instead of object like below example
@@ -171,7 +172,7 @@ export default class Welcome extends Component {
 
 ### Binding Event Handlers
 - Created EventBind.js
-- Note: When ever we want to bind the value using 'this' keyword inside click method use fat arrow function in render method as 
+- Note: When ever we want to bind the value using 'this' keyword inside click method use fat arrow function as 
 a class property or also we can use this fat arrow function in Functional Component.
 - ex: 
 ```
@@ -450,6 +451,32 @@ const UserContext = React.createContext({name: 'NA', age: 0});
 - Axios & JSON Placeholder for FAKE APIs
 - created a PostList.js
 
+--------------------------------------------------------------------------------------------------------------------------------
+# React Hooks 
+
+
+## What are Hooks
+- Hooks are the new feature introduce in React v16.8 which allows you to use react feature without writing a class.
+- ex: We can use state in a component
+- Note: Hooks does not work in Class
+
+## Why Hooks are required ?
+- Reason Set 1
+    - When working with class its important to understand the 'this' keyword works in JS
+    - We were need to remember to bind event handler in constructor 
+    - Classes doesn't minify very well and make hot reloading very unreliable
+- Reason Set 2
+    - There is no particular way to reuse the stateful component logic
+    - Higher order component (HOC) and render props do address this problem.
+    - Makes harder to maintain the code
+    - There is a need to share the stateful logic in a better way
+- Reason Set 3
+    - In complex component when having HTTP calls and Event Listeners
+    - We were need to add in componentDidMount(), componentDidUpdate() and componentWillUnmount()
+    - This leads to un organized of code 
+
+
+## useState Hook
 
 
 ## Shortcut of snippets
